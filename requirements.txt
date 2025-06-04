@@ -1,0 +1,100 @@
+# Core Data Science Libraries
+numpy
+pandas
+scipy
+scikit-learn
+
+# Machine Learning
+xgboost
+lightgbm
+catboost
+imbalanced-learn
+
+# Deep Learning (optional)
+# tensorflow==2.13.0
+# torch==2.0.1
+
+# Model Interpretation
+shap
+eli5
+lime
+
+# Visualization
+matplotlib
+seaborn
+plotly
+
+# Web Frameworks
+streamlit
+fastapi
+uvicorn[standard]
+flask
+pydantic
+
+# API Development
+requests
+httpx
+python-multipart
+
+# Database
+sqlalchemy
+psycopg2-binary  # For PostgreSQL
+
+# Monitoring & MLOps
+mlflow
+evidently
+prometheus-client
+
+# Hyperparameter Optimization
+optuna
+hyperopt
+
+# Testing
+pytest
+pytest-cov
+pytest-asyncio
+
+# Utilities
+python-dotenv
+joblib
+tqdm
+click
+
+# Documentation
+sphinx
+sphinx-rtd-theme
+
+# Code Quality
+black
+flake8
+mypy
+pre-commit
+# Deployment
+gunicorn
+docker
+redis
+
+# Cloud SDKs (optional, uncomment as needed)
+# boto3==1.28.17  # AWS
+# google-cloud-storage==2.10.0  # GCP
+# azure-storage-blob==12.17.0  # Azure
+
+# Logging & Monitoring
+loguru
+sentry-sdk
+
+# Development Tools
+jupyter
+jupyterlab
+ipykernel
+notebook
+
+# Data Validation
+great-expectations
+pandera
+
+# Version Control
+dvc  # Data Version Control
+
+fastapi
+uvicorn[standard]
