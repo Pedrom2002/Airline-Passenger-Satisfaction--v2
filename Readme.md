@@ -5,6 +5,7 @@
 ![Build Status](https://img.shields.io/github/workflow/status/Pedrom2002/Airline-Passenger-Satisfaction/CI)
 ![Last Commit](https://img.shields.io/github/last-commit/Pedrom2002/Airline-Passenger-Satisfaction)
 
+
 **An enterprise-grade machine learning solution for predicting airline passenger satisfaction using advanced ML techniques**
 
 
@@ -129,11 +130,10 @@ Airlines aim to understand and predict passenger satisfaction to:
 
 ### Prerequisites
 
-- **Python 3.9+**  
-- **Docker** (optional, but recommended)  
+- **Python 3.9+**   
 - **Git**
 
-### Method 1: Local Installation
+### Local Installation
 
 ```bash
 # Clone repository
@@ -141,63 +141,31 @@ git clone https://github.com/Pedrom2002/Airline-Passenger-Satisfaction.git
 cd Airline-Passenger-Satisfaction
 
 # Create virtual environment
+conda create -n airline-satisfaction python=3.10 -y
+conda activate airline-satisfaction
+or
 python -m venv venv
-source venv/bin/activate    # Windows: venv\Scripts\activate
+.\venv\Scripts\Activate.ps1 (PowerShell) / .\venv\Scripts\activate.bat (cmd) / source venv/bin/activate (Linux/macOS)
 
 # Install dependencies
 pip install -r requirements.txt
 
 # Download dataset if not included
-python scripts/download_data.py
-```
+**Airline Passenger Satisfaction** dataset from Kaggle
 
-### Method 2: Docker Installation
+#Run app
+python -m streamlit run app.py
+or
 
-```bash
-# Clone repository
-git clone https://github.com/Pedrom2002/Airline-Passenger-Satisfaction.git
-cd Airline-Passenger-Satisfaction
+#Run api
+uvicorn api.main:app --reload --port 8000
 
-# Build and start containers
-docker-compose up -d
 
 # Access services:
 # - API:     http://localhost:8000
 # - Dashboard: http://localhost:8501
-# - MLflow:    http://localhost:5000
 ```
 
-## 💡 Quick Start
-
-### 1. Run the Streamlit Dashboard
-
-```bash
-streamlit run app.py
-```
-
-- Open `http://localhost:8501` in your browser to interact with the dashboard.
-
-### 2. Make a Single Prediction via API
-
-```python
-import requests
-
-response = requests.post("http://localhost:8000/predict", json={
-    "Gender": "Male",
-    "CustomerType": "Loyal Customer",
-    "Age": 35,
-    "TypeOfTravel": "Business travel",
-    "Class": "Business",
-    # ... other features
-})
-print(response.json())
-```
-
-### 3. Batch Processing (CSV)
-
-```bash
-curl -X POST -F "file=@passengers.csv" http://localhost:8000/batch_predict -o predictions.csv 
-```
 
 ## 📁 Project Structure
 
@@ -270,6 +238,7 @@ When running the FastAPI backend (via `uvicorn` or Docker), the interactive API 
 Run locally with FastAPI and Uvicorn:
 
 ```bash
+
 uvicorn api.main:app --reload --port 8000
 ```
 
