@@ -3,7 +3,6 @@
 ![Python](https://img.shields.io/badge/Python-3.9+-blue.svg)
 ![License](https://img.shields.io/badge/License-MIT-green.svg)
 ![Build Status](https://img.shields.io/github/workflow/status/Pedrom2002/Airline-Passenger-Satisfaction/CI)
-![Coverage](https://img.shields.io/codecov/c/github/Pedrom2002/Airline-Passenger-Satisfaction)
 ![Docker](https://img.shields.io/docker/pulls/pedrom2002/airline-satisfaction)
 ![Last Commit](https://img.shields.io/github/last-commit/Pedrom2002/Airline-Passenger-Satisfaction)
 
