@@ -70,8 +70,8 @@ class PassengerFeatures(BaseModel):
     checkin_service: int = Field(..., ge=1, le=5)
     inflight_service: int = Field(..., ge=1, le=5)
     cleanliness: int = Field(..., ge=1, le=5)
-    departure_delay_in_minutes: int = Field(..., ge=0, default=0)
-    arrival_delay_in_minutes: int = Field(..., ge=0, default=0)
+    departure_delay_in_minutes: int = Field(..., ge=0,)
+    arrival_delay_in_minutes: int = Field(..., ge=0,)
     
     @validator('gender')
     def validate_gender(cls, v):
@@ -160,7 +160,7 @@ def load_model_artifacts():
         logger.info("Loading model artifacts...")
         
         # Load model
-        with open('models/xgboost_final.pkl', 'rb') as f:
+        with open('models/lightgbm_model.pkl', 'rb') as f:
             model = pickle.load(f)
         
         # Load scaler
@@ -230,8 +230,17 @@ def create_features(df):
     if 'Flight Distance' in df.columns:
         df_new['log_distance'] = np.log1p(df['Flight Distance'])
         df_new['is_long_flight'] = (df['Flight Distance'] > 1000).astype(int)
-        df_new['distance_category'] = pd.qcut(df['Flight Distance'], q=4, 
-                                              labels=['Short', 'Medium', 'Long', 'Very Long'])
+    
+        unique_distances = df['Flight Distance'].nunique()
+        if unique_distances >= 4:
+            df_new['distance_category'] = pd.qcut(
+                df['Flight Distance'], q=4,
+                labels=['Short', 'Medium', 'Long', 'Very Long'],
+                duplicates='drop'
+                )
+    else:
+        # Quando não há variabilidade suficiente
+        df_new['distance_category'] = 'Unknown'
     
     return df_new
 
@@ -381,7 +390,7 @@ async def root():
                 <div class="info">
                     <p><strong>Version:</strong> 1.0.0</p>
                     <p><strong>Description:</strong> ML-powered API for predicting passenger satisfaction</p>
-                    <p><strong>Model:</strong> XGBoost with 96.5% accuracy</p>
+                    <p><strong>Model:</strong> lightgbm with 96.5% accuracy</p>
                 </div>
                 
                 <h2>📚 Documentation</h2>
@@ -420,7 +429,6 @@ async def root():
                 <h2>👨‍💻 Developer</h2>
                 <p>Created by <strong>Pedro M.</strong> | 
                    <a href="https://github.com/Pedrom2002">GitHub</a> | 
-                   <a href="mailto:pedrom02.dev@gmail.com">Email</a>
                 </p>
             </div>
         </body>

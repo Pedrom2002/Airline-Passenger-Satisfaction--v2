@@ -60,7 +60,7 @@
     },
     "cv_score_mean": 0.9563622359130545,
     "cv_score_std": 0.0020480652621645916,
-    "training_date": "2025-06-04 15:24:25",
+    "training_date": "2025-06-05 16:11:58",
     "n_features": 39,
     "n_training_samples": 103904
 }

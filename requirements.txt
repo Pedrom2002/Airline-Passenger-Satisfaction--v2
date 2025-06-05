@@ -98,4 +98,5 @@ dvc  # Data Version Control
 
 fastapi
 uvicorn[standard]
+python-multipart
 
