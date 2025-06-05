@@ -3,8 +3,6 @@
 ![Python](https://img.shields.io/badge/Python-3.9+-blue.svg)
 ![License](https://img.shields.io/badge/License-MIT-green.svg)
 ![Build Status](https://img.shields.io/github/workflow/status/Pedrom2002/Airline-Passenger-Satisfaction/CI)
-![Coverage](https://img.shields.io/codecov/c/github/Pedrom2002/Airline-Passenger-Satisfaction)
-![Docker](https://img.shields.io/docker/pulls/pedrom2002/airline-satisfaction)
 ![Last Commit](https://img.shields.io/github/last-commit/Pedrom2002/Airline-Passenger-Satisfaction)
 
 **An enterprise-grade machine learning solution for predicting airline passenger satisfaction using advanced ML techniques**
@@ -269,27 +267,12 @@ When running the FastAPI backend (via `uvicorn` or Docker), the interactive API 
 
 #### 🔧 Step 1: Start the API Server
 
-If running locally with FastAPI and Uvicorn:
+Run locally with FastAPI and Uvicorn:
 
 ```bash
-uvicorn api.app:app --reload --port 8000
+uvicorn api.main:app --reload --port 8000
 ```
 
-Or using Docker Compose:
-
-```bash
-docker-compose up
-```
-
-#### 🌐 Step 2: Open Documentation in Your Browser
-
-Once the server is up, navigate to:
-
-- **Swagger UI** (interactive documentation):  
-  👉 [http://localhost:8000/docs](http://localhost:8000/docs)
-
-- **ReDoc** (elegant alternative):  
-  👉 [http://localhost:8000/redoc](http://localhost:8000/redoc)
 
 #### 🧪 What You Can Do
 
@@ -298,32 +281,6 @@ Once the server is up, navigate to:
 - Understand input parameters and validation rules
 - Explore status codes and model schemas
 
-#### 🚀 Quick Swagger Test Example
-
-1. Open [http://localhost:8000/docs](http://localhost:8000/docs)
-2. Click on **POST /predict**
-3. Fill in passenger data in the JSON payload
-4. Click **Try it out → Execute**
-5. View the prediction response in real-time
-
-
-
-
-### MLflow Tracking
-
-Access the MLflow UI at `http://localhost:5000` to:
-- Track experiments  
-- Compare model versions  
-- Monitor metrics  
-- Manage the model registry
-
-### Grafana Dashboard
-
-Access Grafana at `http://localhost:3000` to view:
-- API response times  
-- Prediction volumes  
-- Model performance trends  
-- System health metrics
 
 ### Alerts
 
@@ -337,23 +294,6 @@ Configure alerts for:
 
 Contributions are welcome!
 
-### Development Setup
-
-```bash
-# Install development dependencies
-pip install -r requirements-dev.txt
-
-# Setup pre-commit hooks
-pre-commit install
-
-# Run tests
-pytest tests/
-
-# Format code
-black .
-isort .
-```
-
 ### Pull Request Process
 
 1. Fork the repository  
@@ -362,38 +302,10 @@ isort .
 4. Push to the branch (`git push origin feature/AmazingFeature`)  
 5. Open a Pull Request  
 
-## 📊 Business Impact
-
-### Key Achievements
-
-- 🎯 **15% increase** in customer satisfaction prediction accuracy  
-- ⚡ **3x faster** prediction response time  
-- 💰 **$2M+ saved** through improved service optimization  
-- 📈 **25% reduction** in customer complaints  
-
-### Use Cases
-
-1. **Real-time Feedback**: Predict satisfaction during flight booking  
-2. **Service Optimization**: Identify areas for improvement  
-3. **Customer Segmentation**: Target interventions effectively  
-4. **Resource Allocation**: Optimize staff and resources  
-
-## 🏆 Awards & Recognition
-
-- 🥇 **Best ML Project** - Data Science Summit 2024  
-- 🌟 **Featured Project** - Towards Data Science  
-- 📚 **Case Study** - Stanford ML Curriculum  
-
-## 📚 Resources
-
-- [Blog Post](https://medium.com/@pedrom02/airline-satisfaction-ml)  
-- [Video Tutorial](https://youtube.com/watch?v=demo)  
-- [Presentation Slides](https://slides.com/pedrom02/airline-ml)  
-- [Research Paper](https://arxiv.org/abs/airline-satisfaction)  
 
 ## 📄 License
 
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+This project is licensed under the MIT License
 
 ## 👤 Author
 
@@ -406,11 +318,3 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 ## 🙏 Acknowledgments
 
 - Dataset: [Kaggle - Airline Passenger Satisfaction](https://www.kaggle.com/datasets/teejmahal20/airline-passenger-satisfaction)  
-- Inspiration: Real-world airline industry challenges  
-- Community: Thanks to all contributors and users  
-
----
-
-Made with ❤️ by Pedro M.
-
-⭐ Star this repository if you find it helpful!
