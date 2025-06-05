@@ -263,104 +263,52 @@ airline-satisfaction/
 
 ## 🔌 API Documentation
 
-### Base URL
 
-```
-https://api.airline-satisfaction.com/v1
-```
+### 📚 How to Access the API Documentation Locally
 
-### Endpoints
+When running the FastAPI backend (via `uvicorn` or Docker), the interactive API docs are automatically available.
 
-#### Health Check
+#### 🔧 Step 1: Start the API Server
 
-```http
-GET /health
-```
-
-#### Single Prediction
-
-```http
-POST /predict
-Content-Type: application/json
-
-{
-  "Gender": "Male",
-  "CustomerType": "Loyal Customer",
-  "Age": 35,
-  "TypeOfTravel": "Business travel",
-  "Class": "Business",
-  // ... other features
-}
-```
-
-#### Batch Prediction
-
-```http
-POST /batch_predict
-Content-Type: multipart/form-data
-
-file: passengers.csv
-```
-
-### Response Format
-
-```json
-{
-  "request_id": "req_20250315_1234",
-  "prediction": "satisfied",
-  "probability": 0.923,
-  "confidence_level": "High",
-  "model_version": "1.0.0"
-}
-```
-
-## 🚢 Deployment
-
-### Local Development
+If running locally with FastAPI and Uvicorn:
 
 ```bash
-# Start all services
-make run
-
-# Run tests
-make test
-
-# Build Docker image
-make build
+uvicorn api.app:app --reload --port 8000
 ```
 
-### Production Deployment
-
-#### Option 1: Heroku
+Or using Docker Compose:
 
 ```bash
-heroku create airline-satisfaction
-heroku config:set PYTHON_VERSION=3.9
-git push heroku main
+docker-compose up
 ```
 
-#### Option 2: AWS (ECS/EKS)
+#### 🌐 Step 2: Open Documentation in Your Browser
 
-```bash
-# Build and push to ECR
-aws ecr get-login-password | docker login --username AWS --password-stdin $ECR_URI
-docker build -t airline-satisfaction .
-docker tag airline-satisfaction:latest $ECR_URI/airline-satisfaction:latest
-docker push $ECR_URI/airline-satisfaction:latest
+Once the server is up, navigate to:
 
-# Deploy with Kubernetes
-kubectl apply -f k8s/
-```
+- **Swagger UI** (interactive documentation):  
+  👉 [http://localhost:8000/docs](http://localhost:8000/docs)
 
-#### Option 3: Google Cloud Run
+- **ReDoc** (elegant alternative):  
+  👉 [http://localhost:8000/redoc](http://localhost:8000/redoc)
 
-```bash
-# Build and deploy to Cloud Run
-gcloud builds submit --tag gcr.io/$PROJECT_ID/airline-satisfaction
-gcloud run deploy --image gcr.io/$PROJECT_ID/airline-satisfaction --platform managed
-```
+#### 🧪 What You Can Do
 
-## 📈 Monitoring & Maintenance
+- Test endpoints directly in the browser
+- View request and response examples
+- Understand input parameters and validation rules
+- Explore status codes and model schemas
+
+#### 🚀 Quick Swagger Test Example
+
+1. Open [http://localhost:8000/docs](http://localhost:8000/docs)
+2. Click on **POST /predict**
+3. Fill in passenger data in the JSON payload
+4. Click **Try it out → Execute**
+5. View the prediction response in real-time
+
+
+
 
 ### MLflow Tracking
 
