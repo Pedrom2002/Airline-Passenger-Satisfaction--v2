@@ -36,5 +36,5 @@ click
 # Deployment
 docker
 redis
+scikit-learn
 
-#
