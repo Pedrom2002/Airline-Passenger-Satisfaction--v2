@@ -9,7 +9,6 @@
 
 **An enterprise-grade machine learning solution for predicting airline passenger satisfaction using advanced ML techniques**
 
-[Demo](https://airline-satisfaction.herokuapp.com) • [Documentation](https://pedrom2002.github.io/Airline-Passenger-Satisfaction) • [API Reference](https://airline-satisfaction.herokuapp.com/docs)
 
 ---
 
@@ -199,7 +198,7 @@ print(response.json())
 ### 3. Batch Processing (CSV)
 
 ```bash
-curl -X POST -F "file=@passengers.csv" http://localhost:8000/batch_predict -o predictions.csv
+curl -X POST -F "file=@passengers.csv" http://localhost:8000/batch_predict -o predictions.csv 
 ```
 
 ## 📁 Project Structure
@@ -336,7 +335,7 @@ Configure alerts for:
 
 ## 🤝 Contributing
 
-Contributions are welcome! Please see our [Contributing Guide](CONTRIBUTING.md) for details.
+Contributions are welcome!
 
 ### Development Setup
 
