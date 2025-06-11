@@ -1,0 +1,22 @@
+# FastAPI e servidor
+fastapi==0.104.1
+uvicorn[standard]==0.24.0
+python-multipart==0.0.6
+
+# Validação de dados
+pydantic==2.5.0
+
+# Machine Learning
+pandas==2.1.4
+numpy==1.24.4
+
+# Monitoramento e métricas
+prometheus-client==0.19.0
+
+# Logging e utilitários
+structlog==23.2.0
+
+# Testes (opcional)
+pytest==7.4.3
+httpx==0.25.2
+catboost
